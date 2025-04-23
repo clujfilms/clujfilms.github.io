@@ -191,4 +191,10 @@
     font-size: 1.2rem;
     z-index: 2;
   }
-  
+
+  .multiline-text {
+    max-width: 700px; /* Ajustează lățimea pentru a împărți textul pe trei rânduri */
+    margin: 10px auto; /* Centrează textul sub <h1> */
+    text-align: center; /* Aliniază textul la centru */
+    line-height: 1.5; /* Spațiere între rânduri */
+  }
