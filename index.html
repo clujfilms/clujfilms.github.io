@@ -13,9 +13,9 @@
       const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
       if (darkScheme.matches) {
-        favicon.setAttribute('href', 'favicon negru.png');
-      } else {
         favicon.setAttribute('href', 'favicon alb.png');
+      } else {
+        favicon.setAttribute('href', 'favicon negru.png');
       }
     }
 
