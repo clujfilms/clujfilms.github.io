@@ -5,9 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cluj Films - Home</title>
   <link rel="icon" href="favicon-light.png">
-  <link rel="icon" href="favicon alb.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="favicon negru.png" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="styles.css"/>
+<script>
+function updateFavicon() {
+    const favicon = document.getElementById('favicon');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        favicon.href = 'favicon-dark.png';
+    } else {
+        favicon.href = 'favicon-light.png';
+    }
+}
+
+// Rulează o dată la încărcare
+updateFavicon();
+
+// Ascultă dacă utilizatorul schimbă tema sistemului
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+</script>
+
+
 </head>
 <body>
   <nav>
