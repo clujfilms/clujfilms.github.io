@@ -4,7 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 - Pagina nu a fost găsită</title>
+<link id="favicon" rel="icon" href="favicon negru.png" type="image/png">
+  
+  <script>
+    function setFavicon() {
+      const favicon = document.getElementById('favicon');
+      const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
+      if (darkScheme.matches) {
+        // Dacă e dark mode -> favicon ALB (ca să se vadă pe fundal negru)
+        favicon.setAttribute('href', 'favicon alb.png');
+      } else {
+        // Dacă e light mode -> favicon NEGRU (ca să se vadă pe fundal alb)
+        favicon.setAttribute('href', 'favicon negru.png');
+      }
+    }
+
+    // Setează favicon la încărcare
+    window.addEventListener('DOMContentLoaded', setFavicon);
+
+    // Updatează favicon dacă utilizatorul schimbă tema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
+  </script>
   <style>
     :root {
       --background-color: #f5f5f5;
