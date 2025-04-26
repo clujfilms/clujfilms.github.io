@@ -4,24 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cluj Films - Home</title>
-  <link rel="icon" href="favicon alb.png">
 <link rel="stylesheet" href="styles.css"/>
-<script>
-function updateFavicon() {
-    const favicon = document.getElementById('favicon');
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        favicon.href = 'favicon alb.png';
-    } else {
-        favicon.href = 'favicon negru.png';
+  <link id="favicon" rel="icon" href="favicon alb.png" type="image/png">
+  
+  <script>
+    function setFavicon() {
+      const favicon = document.getElementById('favicon');
+      const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+      if (darkScheme.matches) {
+        favicon.setAttribute('href', 'favicon negru.png');
+      } else {
+        favicon.setAttribute('href', 'favicon alb.png');
+      }
     }
-}
 
-// Rulează o dată la încărcare
-updateFavicon();
+    // Setează favicon la încărcare
+    window.addEventListener('DOMContentLoaded', setFavicon);
 
-// Ascultă dacă utilizatorul schimbă tema sistemului
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
-</script>
+    // Updatează favicon dacă utilizatorul schimbă tema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
+  </script>
 
 
 </head>
