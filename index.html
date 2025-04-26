@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cluj Films - Home</title>
 <link rel="stylesheet" href="styles.css"/>
-  <link id="favicon" rel="icon" href="favicon alb.png" type="image/png">
+    <link id="favicon" rel="icon" href="favicon-negru.png" type="image/png">
   
   <script>
     function setFavicon() {
@@ -13,9 +13,11 @@
       const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
       if (darkScheme.matches) {
-        favicon.setAttribute('href', 'favicon negru.png');
+        // Dacă e dark mode -> favicon ALB (ca să se vadă pe fundal negru)
+        favicon.setAttribute('href', 'favicon-alb.png');
       } else {
-        favicon.setAttribute('href', 'favicon alb.png');
+        // Dacă e light mode -> favicon NEGRU (ca să se vadă pe fundal alb)
+        favicon.setAttribute('href', 'favicon-negru.png');
       }
     }
 
