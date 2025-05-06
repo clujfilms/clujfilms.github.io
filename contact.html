@@ -18,46 +18,51 @@
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
   </script>
 
-  <!-- Stil -->
   <style>
-    :root {
-      --bg-color: #121212;
-      --text-color: #ffffff;
-      --accent-color: #4caf50;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+                  url('bg.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      text-align: center;
+      align-items: center;
       padding: 20px;
+      text-align: center;
     }
 
-    header {
+    img.logo {
+      width: 100px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    }
+
+    h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
-    .subtext {
+    p.subtext {
       font-size: 1.2rem;
       margin-bottom: 30px;
     }
 
     .contact-info {
-      background-color: #1e1e1e;
-      padding: 20px 30px;
+      background-color: rgba(30, 30, 30, 0.8);
+      padding: 25px 30px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
       max-width: 400px;
       width: 100%;
+      margin-bottom: 40px;
     }
 
     .info-line {
@@ -66,7 +71,7 @@
     }
 
     .info-line a {
-      color: var(--accent-color);
+      color: #4caf50;
       text-decoration: none;
     }
 
@@ -74,10 +79,10 @@
       text-decoration: underline;
     }
 
-    img.logo {
-      width: 100px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+    footer {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      padding: 15px 0;
     }
   </style>
 </head>
@@ -85,13 +90,15 @@
 <body>
   <img src="logo.png" alt="Cluj Films Logo" class="logo" />
 
-  <header>Contactează-ne</header>
-  <div class="subtext">Suntem bucuroși să colaborăm cu tine!</div>
+  <h1>Contactează-ne</h1>
+  <p class="subtext">Suntem bucuroși să colaborăm cu tine!</p>
 
   <div class="contact-info">
     <div class="info-line">Email: <a href="mailto:clujfilms@hotmail.com">clujfilms@hotmail.com</a></div>
     <div class="info-line">Telefon: <span style="opacity: 0.5;">(în curând)</span></div>
     <div class="info-line">Locație: <span style="opacity: 0.5;">Nespecificată</span></div>
   </div>
+
+  <footer>© 2025 Cluj Films</footer>
 </body>
 </html>
