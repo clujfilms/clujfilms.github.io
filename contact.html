@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Cluj Films</title>
+
+  <!-- Favicon dinamic -->
+  <script>
+    function setFavicon() {
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const favicon = document.querySelector("link[rel='icon']") || document.createElement('link');
+      favicon.rel = 'icon';
+      favicon.href = isDark ? 'favicon negru.png' : 'favicon alb.png';
+      document.head.appendChild(favicon);
+    }
+    setFavicon();
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
+  </script>
+
+  <!-- Stil -->
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --accent-color: #4caf50;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      background-color: #1e1e1e;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .info-line {
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+
+    .info-line a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .info-line a:hover {
+      text-decoration: underline;
+    }
+
+    img.logo {
+      width: 100px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 10px rgba(0,0,0,0.2));
+    }
+  </style>
+</head>
+
+<body>
+  <img src="logo.png" alt="Cluj Films Logo" class="logo" />
+
+  <header>Contactează-ne</header>
+  <div class="subtext">Suntem bucuroși să colaborăm cu tine!</div>
+
+  <div class="contact-info">
+    <div class="info-line">Email: <a href="mailto:clujfilms@hotmail.com">clujfilms@hotmail.com</a></div>
+    <div class="info-line">Telefon: <span style="opacity: 0.5;">(în curând)</span></div>
+    <div class="info-line">Locație: <span style="opacity: 0.5;">Nespecificată</span></div>
+  </div>
+</body>
+</html>
