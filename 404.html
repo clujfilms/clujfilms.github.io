@@ -1,79 +1,125 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 - Pagina nu a fost găsită</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Pagina nu există</title>
   <style>
-    :root {
-      --background-color: #f5f5f5;
-      --text-color: #333333;
-      --accent-color: #4caf50;
+    /* RESET & FOND */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
+      background: black;
+      color: #00FFEA;
+      font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      transition: background-color 0.5s, color 0.5s;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
 
-    h1 {
-      font-size: 6rem;
-      margin: 0;
+    /* SCANLINES BACKGROUND */
+    body::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 234, 0.05),
+        rgba(0, 255, 234, 0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      z-index: 1;
+      pointer-events: none;
+      animation: scan 5s linear infinite;
     }
 
-    p {
-      font-size: 1.5rem;
-      margin: 10px 0 30px 0;
-      text-align: center;
-      max-width: 500px;
-    }
-
-    a {
-      padding: 10px 20px;
-      background-color: var(--accent-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    a:hover {
-      background-color: #45a049;
-    }
-  </style>
-
-  <script>
-    function setTheme() {
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (isDark) {
-        document.documentElement.style.setProperty('--background-color', '#121212');
-        document.documentElement.style.setProperty('--text-color', '#dddddd');
-      } else {
-        document.documentElement.style.setProperty('--background-color', '#f5f5f5');
-        document.documentElement.style.setProperty('--text-color', '#333333');
+    @keyframes scan {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 0 100%;
       }
     }
 
-    window.addEventListener('DOMContentLoaded', setTheme);
+    /* TEXT 404 GLITCHY */
+    h1 {
+      font-size: 12vw;
+      position: relative;
+      z-index: 2;
+      animation: flicker 1.5s infinite;
+      text-shadow:
+        0 0 2px #0ff,
+        0 0 4px #0ff,
+        0 0 8px #0ff;
+    }
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
-  </script>
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 100% {
+        opacity: 1;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.6;
+      }
+    }
 
+    /* MESAJ SUB */
+    p {
+      font-size: 1.5rem;
+      color: #00ffee;
+      z-index: 2;
+      margin-top: -10px;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 0 0 2px #00ffee;
+    }
+
+    /* BUTON */
+    a.button {
+      background: none;
+      border: 2px solid #00ffee;
+      color: #00ffee;
+      padding: 12px 24px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s ease;
+      z-index: 2;
+    }
+
+    a.button:hover {
+      background: #00ffee;
+      color: black;
+      text-shadow: none;
+      box-shadow: 0 0 10px #00ffee;
+    }
+
+    /* STATIC OVERLAY */
+    .noise {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=');
+      opacity: 0.03;
+      z-index: 3;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
   <h1>404</h1>
-  <p>Ups! Se pare că pagina pe care o cauți nu există sau a fost mutată.</p>
-  <a href="/">Înapoi la prima pagină</a>
+  <p>Pagina nu a fost găsită</p>
+  <a class="button" href="https://clujfilms.github.io">Înapoi la meniu</a>
+  <div class="noise"></div>
 </body>
 </html>
